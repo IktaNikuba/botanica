@@ -1,19 +1,16 @@
 <template>
   <a class="plant">
     <img class="plant__image" src="/img/plant.jpeg" alt="">
-    <template v-if="hasValidData(flower)">
-      <template v-for="(value, key) in flower" :key="key">
-        <span v-if="key !== 'text'">
-          <span>{{ toUpperCase(key) }}:</span> <span>{{ numberWithPercentSymbol(value) }}</span>
-        </span>
-      </template>
-    </template>
+    <FlowerData :flower = "flower" />
     <span>Hybrid: <span>{{ calculateHybridType(flower) }}</span></span>
   </a>
 </template>
 
 <script>
+import FlowerData from "@/components/FlowerData.vue";
 export default {
+  components: {FlowerData},
+
   props: {
     flower: Object,
   },
@@ -29,27 +26,6 @@ export default {
       } else {
         return 'Balanced';
       }
-    },
-
-    toUpperCase(str) {
-      return str.toUpperCase();
-    },
-
-    numberWithPercentSymbol(value) {
-      if ((value instanceof Number || typeof value === 'number') && !isNaN(value)) {
-        return value = value.toString() + '%';
-      } else {
-        return value;
-      }
-    },
-
-    hasValidData(flower) {
-      for (const key in flower) {
-        if (flower.hasOwnProperty(key) && flower[key] !== 0 && key !== 'text') {
-          return true;
-        }
-      }
-      return false;
     },
   }
 };
@@ -68,11 +44,6 @@ export default {
 
   &__image {
     max-width: 300px;
-  }
-
-  h2, span {
-    display: flex;
-    justify-content: space-between;
   }
 }
 

@@ -5,10 +5,9 @@
 </template>
 
 <script>
-import {defineComponent} from "vue";
 import SingleProductCard from "./SingleProductCard.vue";
 
-export default defineComponent({
+export default {
   components: {SingleProductCard},
   data() {
     return {
@@ -68,7 +67,7 @@ export default defineComponent({
       ],
     };
   },
-})
+}
 </script>
 
 <style lang="scss">
