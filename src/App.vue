@@ -1,8 +1,3 @@
-<script setup>
-import TheHeader from './components/TheHeader.vue'
-import ProductsCatalog from "./components/ProductsCatalog.vue";
-</script>
-
 <template>
   <header>
     <TheHeader />
@@ -12,6 +7,11 @@ import ProductsCatalog from "./components/ProductsCatalog.vue";
     <ProductsCatalog />
   </main>
 </template>
+
+<script setup>
+import TheHeader from './components/TheHeader.vue'
+import ProductsCatalog from "./components/ProductsCatalog.vue";
+</script>
 
 <style scoped>
 

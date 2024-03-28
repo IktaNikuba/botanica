@@ -1,11 +1,13 @@
 <template>
   <a class="plant">
-    <img class="plant__image" src="/public/img/plant.jpeg" alt="">
-    <span v-for="(value, key) in flower" :key="key">
-      <template v-if="value !== 0">
-        <span>{{ toUpperCase(key) }}:</span> <span>{{ value }}</span>
+    <img class="plant__image" src="/img/plant.jpeg" alt="">
+    <template v-if="hasValidData(flower)">
+      <template v-for="(value, key) in flower" :key="key">
+        <span v-if="key !== 'text'">
+          <span>{{ toUpperCase(key) }}:</span> <span>{{ numberWithPercentSymbol(value) }}</span>
+        </span>
       </template>
-    </span>
+    </template>
     <span>Hybrid: <span>{{ calculateHybridType(flower) }}</span></span>
   </a>
 </template>
@@ -31,7 +33,24 @@ export default {
 
     toUpperCase(str) {
       return str.toUpperCase();
-    }
+    },
+
+    numberWithPercentSymbol(value) {
+      if ((value instanceof Number || typeof value === 'number') && !isNaN(value)) {
+        return value = value.toString() + '%';
+      } else {
+        return value;
+      }
+    },
+
+    hasValidData(flower) {
+      for (const key in flower) {
+        if (flower.hasOwnProperty(key) && flower[key] !== 0 && key !== 'text') {
+          return true;
+        }
+      }
+      return false;
+    },
   }
 };
 </script>
