@@ -2,32 +2,19 @@
   <a class="plant">
     <img class="plant__image" src="/img/plant.jpeg" alt="">
     <FlowerData :flower = "flower" />
-    <span>Hybrid: <span>{{ calculateHybridType(flower) }}</span></span>
+    <HybridType :flower = "flower" />
   </a>
 </template>
 
 <script>
 import FlowerData from "@/components/FlowerData.vue";
+import HybridType from "@/components/HybridType.vue";
 export default {
-  components: {FlowerData},
+  components: {FlowerData, HybridType},
 
   props: {
     flower: Object,
   },
-
-  methods: {
-    calculateHybridType(flower) {
-      if (flower.ruderalis > 0) {
-        return 'Autoflower';
-      } else if (flower.sativa > flower.indica) {
-        return 'Sativa-dominant';
-      } else if (flower.indica > flower.sativa) {
-        return 'Indica-dominant';
-      } else {
-        return 'Balanced';
-      }
-    },
-  }
 };
 </script>
 
