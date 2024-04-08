@@ -1,9 +1,9 @@
 <template>
-  <a class="plant">
+  <router-link :to="`/flower/${flower.id}`" class="plant">
     <img class="plant__image" src="/img/plant.jpeg" alt="">
     <FlowerData :flower = "flower" />
     <HybridType :flower = "flower" />
-  </a>
+  </router-link>
 </template>
 
 <script>
@@ -11,7 +11,6 @@ import FlowerData from "@/components/FlowerData.vue";
 import HybridType from "@/components/HybridType.vue";
 export default {
   components: {FlowerData, HybridType},
-
   props: {
     flower: Object,
   },

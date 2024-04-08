@@ -25,7 +25,7 @@ export default {
       }
     },
     hasValidData(flower, key) {
-      return flower[key] !== 0 && key !== 'text';
+      return flower[key] !== 0 && key !== 'text' && key !== "id";
     },
   }
 };
