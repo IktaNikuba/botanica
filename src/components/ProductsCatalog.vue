@@ -1,6 +1,6 @@
 <template>
   <div class="productsCatalog">
-    <SingleProductCard v-for="flower of flowers" :flower="flower"/>
+    <single-product-card v-for="flower of flowers" :flower="flower"/>
   </div>
 </template>
 

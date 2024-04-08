@@ -3,6 +3,7 @@
       <img class="article__image" @click="getConsoleLog" src="/img/plant.jpeg" alt="Plant image">
       <flower-data :flower="flower"/>
       <hybrid-type :flower="flower"/>
+      <div class="article__text" v-if="flower.text">{{ flower.text }}</div>
       <router-link to="/" class="article__button-back">Back</router-link>
     </div>
   </template>
@@ -15,16 +16,16 @@
     components: {FlowerData, HybridType},
     inject: ["flowers"],
     props: {
-      id: String,
+      name: String,
     },
     data() {
       return {
-        flower: this.flowers[parseInt(this.id - 1)],
+        flower: this.flowers.find(flower => flower.name === this.name),
       }
     },
     methods: {
       getConsoleLog() {
-        console.log(this.$route.params)
+        console.log(this.flower.text);
       }
     }
   }
@@ -41,6 +42,10 @@
     &__button-back {
       margin-top: 30px;
       font-size: 30px;
+    }
+
+    &__text {
+      margin-top: 20px;
     }
   }
   </style>

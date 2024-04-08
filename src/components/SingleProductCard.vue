@@ -1,8 +1,8 @@
 <template>
-  <router-link :to="`/flower/${flower.id}`" class="plant">
+  <router-link :to="`/flower/${flower.name}`" class="plant">
     <img class="plant__image" src="/img/plant.jpeg" alt="">
-    <FlowerData :flower = "flower" />
-    <HybridType :flower = "flower" />
+    <flower-data :flower = "flower" />
+    <hybrid-type :flower = "flower" />
   </router-link>
 </template>
 
