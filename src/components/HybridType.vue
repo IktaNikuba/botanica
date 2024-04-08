@@ -26,7 +26,6 @@ export default {
 </script>
 
 <style>
-
 span {
   display: flex;
   justify-content: space-between;

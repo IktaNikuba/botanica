@@ -17,6 +17,7 @@ export default {
     toUpperCase(str) {
       return str.toUpperCase();
     },
+
     numberWithPercentSymbol(value) {
       if ((value instanceof Number || typeof value === 'number') && !isNaN(value)) {
         return value = value.toString() + '%';
@@ -24,6 +25,7 @@ export default {
         return value;
       }
     },
+
     hasValidData(flower, key) {
       return flower[key] !== 0 && key !== 'text' && key !== "id";
     },

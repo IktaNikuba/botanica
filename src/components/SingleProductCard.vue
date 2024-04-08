@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/flower/${flower.name}`" class="plant">
+  <router-link :to="`/flower/${flower.name.toLowerCase()}`" class="plant">
     <img class="plant__image" src="/img/plant.jpeg" alt="">
     <flower-data :flower = "flower" />
     <hybrid-type :flower = "flower" />

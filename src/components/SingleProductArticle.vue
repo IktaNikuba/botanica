@@ -20,7 +20,7 @@
     },
     data() {
       return {
-        flower: this.flowers.find(flower => flower.name === this.name),
+        flower: this.flowers.find(flower => flower.name.toLowerCase() === this.name),
       }
     },
     methods: {
