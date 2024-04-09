@@ -20,7 +20,7 @@ export default {
 
     numberWithPercentSymbol(value) {
       if ((value instanceof Number || typeof value === 'number') && !isNaN(value)) {
-        return value = value.toString() + '%';
+        return `${value}%'`;
       } else {
         return value;
       }
